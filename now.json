@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "date.js", "use": "@now/node" },
+    { "src": "packages/client-ts/package.json", "use": "@now/static-build" }
+  ],
+  "routes": [
+    { "src": "/date", "dest": "/date.js" },
+    { "src": "^/static/(.*)", "dest": "/packages/client-ts/static/$1" },
+    { "src": "/", "dest": "/packages/client-ts/index.html" }
+  ]
+}
